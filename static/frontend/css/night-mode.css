@@ -580,20 +580,24 @@ Night Mood
     background: #333;
 }
 
-.night-mode .gambo-Breadcrumb {
+.night-mode .gambo-Breadcrumb,
+.night-mode .bb-Breadcrumb {
     background: #333;
     border-top: 1px solid #242424;
 }
 
-.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item a {
+.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item a,
+.night-mode .bb-Breadcrumb .breadcrumb .breadcrumb-item a {
     color: #c7c7c7 !important;
 }
 
-.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item.active {
+.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item.active,
+.night-mode .bb-Breadcrumb .breadcrumb .breadcrumb-item.active {
     color: #fff;
 }
 
-.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item a:hover {
+.night-mode .gambo-Breadcrumb .breadcrumb .breadcrumb-item a:hover,
+.night-mode .bb-Breadcrumb .breadcrumb .breadcrumb-item a:hover {
     color: #fff !important;
 }
 
@@ -981,7 +985,8 @@ Night Mood
     color: #fff;
 }
 
-.night-mode .gambo-body-cash p {
+.night-mode .gambo-body-cash p,
+.night-mode .bb-body-cash p {
     color: #c7c7c7;
 }
 

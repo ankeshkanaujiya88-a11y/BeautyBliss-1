@@ -41,25 +41,27 @@
                                         <td><span class="text-monospace">{{ variant.sku }}</span></td>
                                         <td>
                                             {% if variant.size %}
-                                                <span class="badge badge-info">{{ variant.get_size_display }}</span>
+                                            <span class="badge badge-info">{{ variant.get_size_display }}</span>
                                             {% else %}
-                                                -
+                                            -
                                             {% endif %}
                                         </td>
                                         <td>
                                             {% if variant.color %}
-                                                <span class="badge badge-light">{{ variant.color }}</span>
+                                            <span class="badge badge-light">{{ variant.color }}</span>
                                             {% else %}
-                                                -
+                                            -
                                             {% endif %}
                                         </td>
                                         <td>
                                             {% if variant.stock > 10 %}
-                                                <span class="text-success">{{ variant.stock }} {{ variant.get_stock_unit_display }}</span>
+                                            <span class="text-success">{{ variant.stock }} {{
+                                                variant.get_stock_unit_display }}</span>
                                             {% elif variant.stock > 0 %}
-                                                <span class="text-warning">{{ variant.stock }} {{ variant.get_stock_unit_display }}</span>
+                                            <span class="text-warning">{{ variant.stock }} {{
+                                                variant.get_stock_unit_display }}</span>
                                             {% else %}
-                                                <span class="text-danger">Out of Stock</span>
+                                            <span class="text-danger">Out of Stock</span>
                                             {% endif %}
                                         </td>
                                         <td>
@@ -67,15 +69,12 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="{% url 'users:admin_product_variant_edit' variant.id %}" 
-                                                   class="btn btn-sm btn-info" title="Edit">
+                                                <a href="{% url 'users:admin_product_variant_edit' variant.id %}"
+                                                    class="btn btn-sm btn-info" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <button type="button" 
-                                                        class="btn btn-sm btn-danger delete-variant" 
-                                                        data-id="{{ variant.id }}"
-                                                        data-name="{{ variant }}"
-                                                        title="Delete">
+                                                <button type="button" class="btn btn-sm btn-danger delete-variant"
+                                                    data-id="{{ variant.id }}" data-name="{{ variant }}" title="Delete">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </div>
@@ -88,8 +87,8 @@
                                                 <i class="fas fa-box fa-3x text-muted mb-3"></i>
                                                 <h5>No Variants Found</h5>
                                                 <p class="text-muted">Start by adding your first variant</p>
-                                                <a href="{% url 'users:admin_product_variant_add' product.id %}" 
-                                                   class="btn btn-primary">
+                                                <a href="{% url 'users:admin_product_variant_add' product.id %}"
+                                                    class="btn btn-primary">
                                                     <i class="fas fa-plus-circle"></i> Add Variant
                                                 </a>
                                             </div>
@@ -119,7 +118,8 @@
             <div class="modal-body text-center">
                 <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
                 <h5>Are you sure?</h5>
-                <p class="text-muted">Do you really want to delete <strong><span id="variantName"></span></strong>? This process cannot be undone.</p>
+                <p class="text-muted">Do you really want to delete <strong><span id="variantName"></span></strong>? This
+                    process cannot be undone.</p>
             </div>
             <div class="modal-footer justify-content-center">
                 <form id="deleteForm" method="POST">
@@ -138,49 +138,55 @@
 
 {% block extra_css %}
 <style>
-.empty-state {
-    text-align: center;
-    padding: 40px 20px;
-}
-.badge {
-    padding: 6px 12px;
-    font-size: 12px;
-}
-.badge-info {
-    background-color: #17a2b8;
-}
-.text-monospace {
-    font-family: monospace;
-}
-.btn-group {
-    display: flex;
-    gap: 5px;
-}
-.card-title-2 {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-}
-.table td {
-    vertical-align: middle;
-}
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .badge {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+    }
+
+    .text-monospace {
+        font-family: monospace;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 5px;
+    }
+
+    .card-title-2 {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
 </style>
 {% endblock %}
 
 {% block extra_scripts %}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle delete button clicks
-    document.querySelectorAll('.delete-variant').forEach(button => {
-        button.addEventListener('click', function() {
-            const variantId = this.dataset.id;
-            const variantName = this.dataset.name;
-            
-            document.getElementById('variantName').textContent = variantName;
-            document.getElementById('deleteForm').action = `/users/admin/products/variants/${variantId}/delete/`;
-            
-            $('#deleteModal').modal('show');
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle delete button clicks
+        document.querySelectorAll('.delete-variant').forEach(button => {
+            button.addEventListener('click', function () {
+                const variantId = this.dataset.id;
+                const variantName = this.dataset.name;
+
+                document.getElementById('variantName').textContent = variantName;
+                document.getElementById('deleteForm').action = `/users/admin/products/variants/${variantId}/delete/`;
+
+                $('#deleteModal').modal('show');
+            });
         });
     });
-});
 </script>
-{% endblock %} 
+{% endblock %}

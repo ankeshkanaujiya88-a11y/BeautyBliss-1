@@ -8,7 +8,7 @@ from wishlist.models import Wishlist
 
 
 def index(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(is_active=True)
 
     if request.user.is_authenticated:
         # Annotate products with wishlist status for the current user

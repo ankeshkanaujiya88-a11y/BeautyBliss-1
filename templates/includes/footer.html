@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <ul class="call-email-alt">
-                        <li><a href="tel:+911234567890" class="callemail"><i class="uil uil-dialpad-alt"></i>+91 12345 67890</a></li>
-                        <li><a href="mailto:support@beautybliss.com" class="callemail"><i class="uil uil-envelope-alt"></i>support@beautybliss.com</a></li>
+                        <li><a href="tel:{{ settings.contact_phone|default:'+911234567890' }}" class="callemail"><i class="uil uil-dialpad-alt"></i>{{ settings.contact_phone|default:'+91 12345 67890' }}</a></li>
+                        <li><a href="mailto:{{ settings.contact_email|default:'support@beautybliss.com' }}" class="callemail"><i class="uil uil-envelope-alt"></i>{{ settings.contact_email|default:'support@beautybliss.com' }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -44,7 +44,7 @@
                         <ul>
                             <li><a href="{% url 'core:about' %}">About Us</a></li>
                             <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
-                            <li><a href="{% url 'core:terms' %}">Terms & Conditions</a></li>
+                            <li><a href="{% url 'core:terms' %}">Terms &amp; Conditions</a></li>
                             <li><a href="{% url 'core:privacy' %}">Privacy Policy</a></li>
                             <li><a href="{% url 'core:faq' %}">FAQ</a></li>
                         </ul>
@@ -96,12 +96,12 @@
                             <li><a href="{% url 'core:about' %}">About</a></li>
                             <li><a href="{% url 'core:contact' %}">Contact</a></li>
                             <li><a href="{% url 'core:privacy' %}">Privacy Policy</a></li>
-                            <li><a href="{% url 'core:terms' %}">Terms & Conditions</a></li>
-                            <li><a href="{% url 'core:refund' %}">Refund & Return Policy</a></li>
+                            <li><a href="{% url 'core:terms' %}">Terms &amp; Conditions</a></li>
+                            <li><a href="{% url 'core:refund' %}">Refund &amp; Return Policy</a></li>
                         </ul>
                     </div>
                     <div class="copyright-text">
-                        <i class="uil uil-copyright"></i>Copyright {% now 'Y' %} <b>BeautyBliss</b>. All rights reserved
+                        <i class="uil uil-copyright"></i>Copyright {% now 'Y' %} <b>{{ settings.site_name|default:'Beauty Bliss' }}</b>. All rights reserved
                     </div>
                 </div>
             </div>

@@ -284,13 +284,10 @@ def place_order(request):
         # Clear cart
         cart.items.all().delete()
 
-        messages.success(request, "Order placed successfully!")
         return Response(
             {
                 "message": "Order placed successfully",
-                "redirect_url": reverse(
-                    "orders:success", kwargs={"order_number": order.order_number}
-                ),
+                "redirect_url": reverse("users:dashboard.orders"),
             }
         )
     except Address.DoesNotExist:
@@ -347,9 +344,7 @@ class PaymentIntentView(View, StripeMixin):
                 return JsonResponse(
                     {
                         "success": True,
-                        "redirect_url": reverse(
-                            "orders:success", args=[order.order_number]
-                        ),
+                        "redirect_url": reverse("users:dashboard.orders"),
                     }
                 )
         except Exception as e:
@@ -415,9 +410,7 @@ class PaymentConfirmView(View, StripeMixin):
                 return JsonResponse(
                     {
                         "success": True,
-                        "redirect_url": reverse(
-                            "orders:success", args=[order.order_number]
-                        ),
+                        "redirect_url": reverse("users:dashboard.orders"),
                     }
                 )
             else:

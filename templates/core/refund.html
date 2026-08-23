@@ -1,34 +1,211 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Refund & Return Policy{% endblock %}
+{% block title %}Refund &amp; Return Policy | Beauty Bliss{% endblock %}
 
 {% block content %}
 <div class="wrapper">
-    <div class="gambo-Breadcrumb">
+    <div class="bb-Breadcrumb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Refund & Return Policy</li>
+                            <li class="breadcrumb-item active" aria-current="page">Refund &amp; Return Policy</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <div class="all-product-grid">
+
+    <!-- Header Banner -->
+    <div class="default-dt" style="background: linear-gradient(135deg, #2b2f4c 0%, #3e446d 100%); color: #fff; padding: 45px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="refund-content">
-                        <h2>Refund & Return Policy</h2>
-                        <!-- Add your refund policy content here -->
+                <div class="col-lg-12 text-center">
+                    <div class="title129">
+                        <h2 style="color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 10px;">Refund &amp; Return Policy</h2>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 16px; max-width: 650px; margin: 0 auto;">Shop with confidence. Learn about our 7-day return guarantee, hygiene standards, and fast refund process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-product-grid" style="padding: 40px 0 60px;">
+        <div class="container">
+            <!-- 3 Step Process Cards -->
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="return-step-card">
+                        <div class="step-badge">1</div>
+                        <h4>Request Return</h4>
+                        <p>Initiate a return request from your Orders Dashboard or email support within 7 days of delivery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="return-step-card">
+                        <div class="step-badge">2</div>
+                        <h4>Doorstep Pickup</h4>
+                        <p>Our courier partner will inspect the sealed packaging and pick up the item from your address for free.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="return-step-card">
+                        <div class="step-badge">3</div>
+                        <h4>Fast Refund</h4>
+                        <p>Refunds are initiated within 48 hours of quality inspection and credited to your original payment method.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="refund-content-wrapper">
+                        <section class="refund-section">
+                            <h4>1. 7-Day Return Guarantee</h4>
+                            <p>At <strong>{{ settings.site_name|default:"Beauty Bliss" }}</strong>, we are committed to ensuring you love your beauty products. If you change your mind about an order, you may request a return or exchange within <strong>7 days of delivery</strong>.</p>
+                        </section>
+
+                        <section class="refund-section">
+                            <h4>2. Hygiene &amp; Eligibility Guidelines</h4>
+                            <p>To uphold the highest hygiene and safety standards for all customers, the following conditions apply:</p>
+                            <ul>
+                                <li><strong>Eligible for Return:</strong> Products that are completely unopened, unused, with safety seals, plastic wraps, and original outer packaging intact.</li>
+                                <li><strong>Non-Eligible Items:</strong> Opened, swatched, sampled, or partially used cosmetics, perfumes, serums, lipsticks, and personal hygiene tools cannot be accepted for return once the tamper-evident seal is broken.</li>
+                                <li><strong>Damaged or Defective Items:</strong> If a product arrives damaged, broken, expired, or leaking, it is 100% eligible for an immediate replacement or full refund regardless of packaging.</li>
+                            </ul>
+                        </section>
+
+                        <section class="refund-section">
+                            <h4>3. Damaged or Incorrect Orders</h4>
+                            <p>If you receive a damaged package or an incorrect item, please notify us within <strong>48 hours of delivery</strong>:</p>
+                            <ul>
+                                <li>Email us at <a href="mailto:{{ settings.contact_email|default:'support@beautybliss.com' }}" class="text-primary-bb font-weight-bold">{{ settings.contact_email|default:'support@beautybliss.com' }}</a> with your Order ID.</li>
+                                <li>Attach clear photographs or a short video showing the damage or incorrect item.</li>
+                                <li>We will immediately arrange a priority replacement or full refund with no return shipping fees.</li>
+                            </ul>
+                        </section>
+
+                        <section class="refund-section">
+                            <h4>4. Refund Timelines &amp; Methods</h4>
+                            <ul>
+                                <li><strong>Prepaid Orders (Cards, Net Banking, UPI):</strong> Refunds are credited back to the original payment source within <strong>3 to 5 business days</strong>.</li>
+                                <li><strong>Cash on Delivery (COD) Orders:</strong> Refunds are transferred directly to your bank account or UPI ID provided during the return verification.</li>
+                            </ul>
+                        </section>
+
+                        <section class="refund-section">
+                            <h4>5. Need Help With a Return?</h4>
+                            <p>Our dedicated customer care team is here to make your returns smooth and effortless:</p>
+                            <div class="contact-highlight-box">
+                                <p><i class="uil uil-envelope text-primary-bb mr-2"></i> <strong>Email:</strong> {{ settings.contact_email|default:"support@beautybliss.com" }}</p>
+                                <p><i class="uil uil-phone text-primary-bb mr-2"></i> <strong>Phone:</strong> {{ settings.contact_phone|default:"+91 12345 67890" }}</p>
+                                <p class="mb-0"><i class="uil uil-clock text-primary-bb mr-2"></i> <strong>Support Hours:</strong> Monday – Saturday (9:00 AM – 8:00 PM IST)</p>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+
+<style>
+.text-primary-bb {
+    color: #f55d2c !important;
+}
+.return-step-card {
+    background: #fff;
+    padding: 30px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid #f0f0f5;
+    height: 100%;
+}
+.step-badge {
+    width: 48px;
+    height: 48px;
+    background: #f55d2c;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 12px rgba(245, 93, 44, 0.35);
+}
+.return-step-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin-bottom: 10px;
+}
+.return-step-card p {
+    font-size: 14px;
+    color: #6c7293;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+.refund-content-wrapper {
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f5;
+}
+.refund-section {
+    margin-bottom: 32px;
+}
+.refund-section h4 {
+    color: #2b2f4c;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.refund-section p {
+    color: #4b4f68;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+.refund-section ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+.refund-section ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #4b4f68;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.refund-section ul li::before {
+    content: "•";
+    color: #f55d2c;
+    font-size: 20px;
+    position: absolute;
+    left: 8px;
+    top: -2px;
+}
+.contact-highlight-box {
+    background: #fbfbfd;
+    border: 1px solid #eef0f8;
+    border-left: 4px solid #f55d2c;
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+.contact-highlight-box p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+</style>
+{% endblock %}

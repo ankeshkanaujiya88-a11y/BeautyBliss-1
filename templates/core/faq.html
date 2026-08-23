@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}FAQ{% endblock %}
+{% block title %}Frequently Asked Questions | Beauty Bliss{% endblock %}
 
 {% block content %}
 <div class="wrapper">
-    <div class="gambo-Breadcrumb">
+    <div class="bb-Breadcrumb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -18,17 +19,443 @@
             </div>
         </div>
     </div>
-    <div class="all-product-grid">
+
+    <!-- FAQ Header -->
+    <div class="default-dt" style="background: linear-gradient(135deg, #2b2f4c 0%, #3e446d 100%); color: #fff; padding: 45px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="faq-content">
-                        <h2>Frequently Asked Questions</h2>
-                        <!-- Add your FAQ content here -->
+                <div class="col-lg-12 text-center">
+                    <div class="title129">
+                        <h2 style="color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 10px;">Frequently Asked Questions</h2>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 16px; max-width: 650px; margin: 0 auto;">Everything you need to know about our beauty products, orders, shipping, returns, and skincare advice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Content Area -->
+    <div class="all-product-grid" style="padding: 40px 0 60px;">
+        <div class="container">
+            <!-- Search & Filter Bar -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="faq-search-box">
+                        <i class="uil uil-search search-icon"></i>
+                        <input type="text" id="faqSearchInput" class="form-control form-control-lg" placeholder="Search questions (e.g. shipping, returns, authenticity, shades)..." onkeyup="filterFaqs()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- FAQ Categories Navigation -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="faq-nav-card sticky-top" style="top: 100px; z-index: 10;">
+                        <h4><i class="uil uil-list-ui-alt mr-2 text-primary-bb"></i> FAQ Categories</h4>
+                        <div class="list-group faq-category-list" id="faq-categories-tab">
+                            <a href="#section-orders" class="list-group-item list-group-item-action active">
+                                <i class="uil uil-truck mr-2"></i> Orders &amp; Delivery
+                            </a>
+                            <a href="#section-products" class="list-group-item list-group-item-action">
+                                <i class="uil uil-sparkles mr-2"></i> Products &amp; Authenticity
+                            </a>
+                            <a href="#section-returns" class="list-group-item list-group-item-action">
+                                <i class="uil uil-sync mr-2"></i> Returns &amp; Refunds
+                            </a>
+                            <a href="#section-payments" class="list-group-item list-group-item-action">
+                                <i class="uil uil-credit-card mr-2"></i> Payments &amp; Coupons
+                            </a>
+                            <a href="#section-consultation" class="list-group-item list-group-item-action">
+                                <i class="uil uil-user-nurse mr-2"></i> Skincare &amp; Beauty Advice
+                            </a>
+                        </div>
+
+                        <!-- Need more help box -->
+                        <div class="faq-help-box mt-4">
+                            <h5>Still have questions?</h5>
+                            <p class="small text-muted mb-3">Our friendly beauty advisors are available 24/7 to assist you.</p>
+                            <a href="{% url 'core:contact' %}" class="btn btn-sm btn-block btn-bb-primary">
+                                <i class="uil uil-envelope mr-1"></i> Contact Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion List -->
+                <div class="col-lg-8 col-md-12">
+                    <!-- Category 1: Orders & Delivery -->
+                    <div class="faq-section-block mb-5" id="section-orders">
+                        <div class="section-title-tag mb-3">
+                            <i class="uil uil-truck text-primary-bb mr-2"></i>
+                            <h3>Orders &amp; Shipping</h3>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How long will it take to receive my Beauty Bliss order?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard delivery typically takes <strong>2 to 4 business days</strong> for major metro cities (Mumbai, Delhi, Bangalore, etc.) and <strong>3 to 6 business days</strong> for other regional areas across India. You will receive an SMS and email with live courier tracking details as soon as your parcel is dispatched.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Do you offer Free Shipping on orders?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! All orders valued at <strong>₹499 or above</strong> qualify for <strong>100% Free Shipping</strong>. For orders below ₹499, a nominal standard handling and shipping fee of ₹49 is applied at checkout.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How can I track my order status in real time?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can track your order at any time by visiting your <a href="{% url 'users:dashboard.orders' %}" class="text-primary-bb font-weight-bold">My Orders</a> dashboard. Additionally, tracking links with live courier updates are sent via email and SMS upon shipment.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Can I modify or cancel my order after placing it?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can cancel your order directly from your dashboard before it has entered the "Dispatched" stage. Once an order is in transit, it cannot be canceled, but you may refuse delivery or request a return upon receipt according to our return policy.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Products & Authenticity -->
+                    <div class="faq-section-block mb-5" id="section-products">
+                        <div class="section-title-tag mb-3">
+                            <i class="uil uil-sparkles text-primary-bb mr-2"></i>
+                            <h3>Products &amp; Authenticity</h3>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Are all Beauty Bliss products 100% genuine and authentic?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>100% Guaranteed.</strong> Every product on Beauty Bliss is directly sourced from certified cosmetic laboratories and authorized brand partners. All items arrive in original, sealed, tamper-evident packaging with verifiable batch codes and expiration dates.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Are Beauty Bliss cosmetics and skincare cruelty-free and dermatologically tested?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we are committed to ethical beauty. We strictly curate formulations that are cruelty-free (never tested on animals), dermatologically tested, and free from harmful parabens, phthalates, and harsh sulfates.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How do I check the full ingredients list of a product?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Full ingredient disclosures, key active benefits, and usage instructions are provided on each individual product page under the "Specifications &amp; Ingredients" tab. We believe in complete transparency for your skincare wellness.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Returns & Refunds -->
+                    <div class="faq-section-block mb-5" id="section-returns">
+                        <div class="section-title-tag mb-3">
+                            <i class="uil uil-sync text-primary-bb mr-2"></i>
+                            <h3>Returns &amp; Refunds</h3>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>What is the Beauty Bliss return and replacement policy?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We offer a <strong>7-Day Return &amp; Exchange Window</strong> for products that are unused, unopened, with original brand packaging and seals intact. Due to strict hygiene standards in personal cosmetics, opened or used beauty products cannot be accepted for return unless defective upon arrival.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>What if I receive a damaged, leaking, or incorrect item?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>If your package arrives damaged or you receive an incorrect item, please notify us within <strong>48 hours of delivery</strong> by sending an email with photos to <a href="mailto:support@beautybliss.com" class="text-primary-bb font-weight-bold">support@beautybliss.com</a>. We will immediately dispatch a priority replacement or issue a full refund with zero hassle.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How long does it take to process a refund?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Once our quality team receives and inspects the returned item, your refund will be processed within <strong>2 to 4 business days</strong> back to your original payment method (Credit/Debit Card, UPI, or Bank Account). For Cash on Delivery orders, refunds are issued via direct UPI or bank transfer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Payments & Coupons -->
+                    <div class="faq-section-block mb-5" id="section-payments">
+                        <div class="section-title-tag mb-3">
+                            <i class="uil uil-credit-card text-primary-bb mr-2"></i>
+                            <h3>Payments &amp; Coupons</h3>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>What payment methods do you accept?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We support a comprehensive array of secure payment options:</p>
+                                <ul class="mb-0 mt-2 pl-3">
+                                    <li>UPI (Google Pay, PhonePe, Paytm, BHIM)</li>
+                                    <li>Credit &amp; Debit Cards (Visa, MasterCard, RuPay, Amex)</li>
+                                    <li>Net Banking across 50+ major Indian banks</li>
+                                    <li>Cash on Delivery (COD) for eligible pin codes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How do I apply a discount code or coupon voucher?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>During checkout on the payment step, look for the <strong>"Apply Promo Code"</strong> box. Enter your code and click "Apply". The discount amount will be instantly subtracted from your order total.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 5: Skincare & Beauty Advice -->
+                    <div class="faq-section-block mb-5" id="section-consultation">
+                        <div class="section-title-tag mb-3">
+                            <i class="uil uil-user-nurse text-primary-bb mr-2"></i>
+                            <h3>Skincare &amp; Beauty Advice</h3>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How do I find products suitable for sensitive or acne-prone skin?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can use the sidebar filters on our product catalog to select specific skin concerns such as "Sensitive", "Acne Care", "Hydrating", or "Anti-Aging". In addition, our team is always ready to guide you on building a personalized routine—just drop us a message on our <a href="{% url 'core:contact' %}" class="text-primary-bb font-weight-bold">Contact Page</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-3">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Should I perform a patch test before using new cosmetics?</span>
+                                <i class="uil uil-angle-down toggle-icon"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We strongly recommend doing a simple patch test on a small area of your inner arm or jawline before applying any new active skincare (such as Vitamin C, Retinol, or AHA/BHA exfoliants) to your face, especially if you have sensitive skin.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+
+<script>
+function toggleFaq(element) {
+    const parent = element.parentElement;
+    const answer = element.nextElementSibling;
+    const isOpen = parent.classList.contains('active');
+
+    if (isOpen) {
+        parent.classList.remove('active');
+        answer.style.maxHeight = null;
+    } else {
+        parent.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+}
+
+function filterFaqs() {
+    const input = document.getElementById('faqSearchInput').value.toLowerCase();
+    const faqItems = document.querySelectorAll('.faq-item');
+    const sections = document.querySelectorAll('.faq-section-block');
+
+    faqItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(input)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.faq-item[style="display: block;"], .faq-item:not([style*="display: none"])');
+        if (input.trim() !== '' && visibleItems.length === 0) {
+            section.style.display = 'none';
+        } else {
+            section.style.display = 'block';
+        }
+    });
+}
+</script>
+
+<style>
+.text-primary-bb {
+    color: #f55d2c !important;
+}
+.btn-bb-primary {
+    background: #f55d2c;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.btn-bb-primary:hover {
+    background: #e04b1c;
+    color: #fff;
+}
+.faq-search-box {
+    position: relative;
+}
+.faq-search-box .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #f55d2c;
+}
+.faq-search-box input {
+    padding-left: 55px;
+    border-radius: 50px;
+    border: 2px solid #e9e9f0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.faq-search-box input:focus {
+    border-color: #f55d2c;
+    box-shadow: 0 4px 20px rgba(245, 93, 44, 0.15);
+}
+.faq-nav-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f5;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.faq-nav-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin-bottom: 16px;
+}
+.faq-category-list .list-group-item {
+    border: none;
+    border-radius: 6px !important;
+    margin-bottom: 6px;
+    color: #3e3f5e;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 14px;
+    transition: all 0.2s ease;
+}
+.faq-category-list .list-group-item:hover {
+    background-color: rgba(245, 93, 44, 0.08);
+    color: #f55d2c;
+}
+.faq-category-list .list-group-item.active {
+    background-color: #f55d2c;
+    color: #fff;
+}
+.faq-help-box {
+    background: #fbfbfd;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px dashed #e2e2ec;
+    text-align: center;
+}
+.faq-help-box h5 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin-bottom: 6px;
+}
+.section-title-tag {
+    display: flex;
+    align-items: center;
+}
+.section-title-tag i {
+    font-size: 24px;
+}
+.section-title-tag h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin: 0;
+}
+.faq-item {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #f0f0f5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.faq-item:hover {
+    border-color: #e5e5f0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.faq-question {
+    padding: 18px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2b2f4c;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+.faq-question .toggle-icon {
+    font-size: 20px;
+    color: #f55d2c;
+    transition: transform 0.3s ease;
+}
+.faq-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out;
+    background: #fcfcff;
+    border-top: 1px solid transparent;
+}
+.faq-item.active .faq-answer {
+    border-top-color: #f2f2f8;
+}
+.faq-answer p {
+    padding: 18px 22px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #4b4f68;
+}
+</style>
+{% endblock %}

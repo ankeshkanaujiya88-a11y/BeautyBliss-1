@@ -962,7 +962,8 @@ i.icon1 {
 }
 
 /* --- Category Model --- */
-.main-gambo-model {
+.main-gambo-model,
+.main-bb-model {
     background-image: -webkit-linear-gradient(left, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9));
     background-image: linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9));
 }
@@ -1788,7 +1789,8 @@ i.icon1 {
     width: 100%;
 }
 
-.gambo-overlay {
+.gambo-overlay,
+.bb-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -2037,6 +2039,7 @@ span.like-icon {
     text-align: center;
     padding: 15px;
 	box-shadow: 0 1px 2px 0 #e9e9e9;
+    min-height: 425px;
 }
 
 .product-img {
@@ -2092,6 +2095,7 @@ span.like-icon {
     font-weight: 700;
     margin-bottom: 10px !important;
     line-height: 24px;
+	min-height: 48px;
     text-align: center;
     color: #2b2f4c;
 }
@@ -2115,6 +2119,7 @@ span.like-icon {
 	display: flex;
 	align-items: center;
 	margin-top: 17px;
+    min-height: 40px;
 }
 
 .cart-icon {
@@ -2434,13 +2439,15 @@ img.download-btn {
 
 /* --- Product Grid Page --- */
 
-.gambo-Breadcrumb {
+.gambo-Breadcrumb,
+.bb-Breadcrumb {
     background: #fff;
     border-top: 1px solid #efefef;
     padding: 5px 0;
 }
 
-.gambo-Breadcrumb .breadcrumb {
+.gambo-Breadcrumb .breadcrumb,
+.bb-Breadcrumb .breadcrumb {
     background-color: transparent;
     border-radius: 0;
     font-size: 14px;
@@ -2448,15 +2455,18 @@ img.download-btn {
     color: #8f91ac;
 }
 
-.gambo-Breadcrumb .breadcrumb .breadcrumb-item a {
+.gambo-Breadcrumb .breadcrumb .breadcrumb-item a,
+.bb-Breadcrumb .breadcrumb .breadcrumb-item a {
     color: #8f91ac !important;
 }
 
-.gambo-Breadcrumb .breadcrumb .breadcrumb-item a:hover {
+.gambo-Breadcrumb .breadcrumb .breadcrumb-item a:hover,
+.bb-Breadcrumb .breadcrumb .breadcrumb-item a:hover {
     color: #2b2f4c !important;
 }
 
-.gambo-Breadcrumb .breadcrumb .breadcrumb-item.active {
+.gambo-Breadcrumb .breadcrumb .breadcrumb-item.active,
+.bb-Breadcrumb .breadcrumb .breadcrumb-item.active {
     color: #2b2f4c;
 }
 
@@ -4346,12 +4356,14 @@ label.control-label {
     border: 1px dashed #fff;
 }
 
-.gambo-body-cash {
+.gambo-body-cash,
+.bb-body-cash {
     padding: 30px 20px;
     text-align: center;
 }
 
-.gambo-body-cash p {
+.gambo-body-cash p,
+.bb-body-cash p {
     font-size: 14px;
     font-weight: 500;
     color: #3e3f5e;
@@ -4722,7 +4734,8 @@ table {
     font-size: 14px;
 }
 
-.life-gambo {
+.life-gambo,
+.life-bb {
     padding: 59px 0;
 }
 
@@ -4957,7 +4970,8 @@ table {
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
 
-.jobs-gambo {
+.jobs-gambo,
+.jobs-bb {
     padding: 0;
 }
 
@@ -5290,7 +5304,8 @@ textarea {
 	text-align: center;
 }
 
-.how-order-gambo {
+.how-order-gambo,
+.how-order-bb {
     padding: 0 0 14px;
 }
 
@@ -5380,7 +5395,8 @@ textarea {
     padding: 20px 20px 0;
 }
 
-.blog-gambo {
+.blog-gambo,
+.blog-bb {
     padding: 65px 0 14px;
 }
 

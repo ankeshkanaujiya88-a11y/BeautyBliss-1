@@ -697,8 +697,8 @@ function toggleWishlist(element, productId) {
             element.classList.toggle('liked');
             
             // If we're on the wishlist page, remove the item
-            if (window.location.pathname.includes('/dashboard/wishlist/')) {
-                const productCard = element.closest('.col-lg-3');
+            if (window.location.pathname.includes('/wishlist/')) {
+                const productCard = element.closest('.wishlist-col, .col-lg-3, .col-lg-4, .col-lg-6, .col-xl-4, .col-md-6, [class*="col-"]');
                 if (productCard) {
                     productCard.remove();
                     // Check if wishlist is empty
@@ -737,12 +737,6 @@ function addToCart(productId, quantity = 1) {
         if (data.error) {
             Swal.fire('Error', data.error, 'error');
         } else {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: 'Item added to cart',
-                timer: 1500
-            });
             updateCartCount(data.cart_total);
         }
     });

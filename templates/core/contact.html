@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Contact Us{% endblock %}
+{% block title %}Contact Us | Beauty Bliss{% endblock %}
 
 {% block content %}
 <div class="wrapper">
-    <div class="gambo-Breadcrumb">
+    <div class="bb-Breadcrumb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -18,38 +19,295 @@
             </div>
         </div>
     </div>
-    <div class="all-product-grid">
+
+    <!-- Contact Header Banner -->
+    <div class="default-dt" style="background: linear-gradient(135deg, #2b2f4c 0%, #3e446d 100%); color: #fff; padding: 45px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="contact-info">
-                        <h4>Contact Information</h4>
-                        <ul>
-                            <li><i class="uil uil-map-marker"></i> Address: Dhaka, Bangladesh</li>
-                            <li><i class="uil uil-phone"></i> Phone: +880 123 456 7890</li>
-                            <li><i class="uil uil-envelope"></i> Email: support@wowy.com</li>
-                        </ul>
+                <div class="col-lg-12 text-center">
+                    <div class="title129">
+                        <h2 style="color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 10px;">Get in Touch With Beauty Bliss</h2>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 16px; max-width: 650px; margin: 0 auto;">Have questions about our skincare, cosmetics, shade matching, or your order? Our beauty advisors and support team are here for you.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="contact-form">
-                        <h4>Send Message</h4>
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Cards & Form -->
+    <div class="all-product-grid" style="padding: 40px 0 60px;">
+        <div class="container">
+            <!-- Feature Highlights -->
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="uil uil-headset"></i>
+                        </div>
+                        <h4>24/7 Customer Care</h4>
+                        <p>Dedicated assistance for all your orders, tracking, and product questions.</p>
+                        <a href="mailto:{{ settings.contact_email|default:'support@beautybliss.com' }}" class="feature-link">
+                            {{ settings.contact_email|default:'support@beautybliss.com' }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="uil uil-phone-volume"></i>
+                        </div>
+                        <h4>Direct Line</h4>
+                        <p>Speak directly with our customer support and beauty advisors.</p>
+                        <a href="tel:{{ settings.contact_phone|default:'+911234567890' }}" class="feature-link">
+                            {{ settings.contact_phone|default:'+91 12345 67890' }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="contact-feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="uil uil-map-pin-alt"></i>
+                        </div>
+                        <h4>Headquarters</h4>
+                        <p>Beauty Bliss Flagship Experience &amp; Wellness Center</p>
+                        <span class="feature-address">
+                            {{ settings.address|default:'Beauty Bliss HQ, Bandra Kurla Complex, Mumbai, Maharashtra 400051, India' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form & Detailed Contact Info -->
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-7 col-md-12 mb-4">
+                    <div class="contact-form-wrapper">
+                        <div class="form-header mb-4">
+                            <span class="badge badge-pill badge-primary-bb mb-2">Leave a Message</span>
+                            <h3>Send Us an Inquiry</h3>
+                            <p class="text-muted">Fill in the form below and our beauty concierge team will reply within 24 hours.</p>
+                        </div>
+                        <form id="bb-contact-form" onsubmit="event.preventDefault(); alert('Thank you for contacting Beauty Bliss! Our team has received your message and will get back to you shortly.'); this.reset();">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label font-weight-bold">Full Name *</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="uil uil-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-lg" placeholder="e.g. Priya Sharma" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label font-weight-bold">Email Address *</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="uil uil-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control form-control-lg" placeholder="e.g. priya@example.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label font-weight-bold">Phone Number</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="uil uil-phone"></i></span>
+                                        </div>
+                                        <input type="tel" class="form-control form-control-lg" placeholder="e.g. +91 98765 43210">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label font-weight-bold">Inquiry Type *</label>
+                                    <select class="form-control form-control-lg" required>
+                                        <option value="">Select Topic</option>
+                                        <option value="order">Order Tracking &amp; Delivery</option>
+                                        <option value="consultation">Beauty &amp; Skincare Advice</option>
+                                        <option value="product">Product Details &amp; Ingredients</option>
+                                        <option value="return">Return &amp; Refund Request</option>
+                                        <option value="feedback">Feedback &amp; Suggestions</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <label class="form-label font-weight-bold">Subject *</label>
+                                <input type="text" class="form-control form-control-lg" placeholder="Brief subject of your message" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                                <label class="form-label font-weight-bold">Your Message *</label>
+                                <textarea class="form-control" rows="5" placeholder="Tell us how we can help you..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-block btn-lg btn-bb-primary mt-4">
+                                <i class="uil uil-message mr-2"></i> Send Message
+                            </button>
                         </form>
+                    </div>
+                </div>
+
+                <!-- Info & FAQ Sidebar -->
+                <div class="col-lg-5 col-md-12">
+                    <div class="contact-sidebar-card mb-4">
+                        <h4><i class="uil uil-clock-three mr-2 text-primary-bb"></i> Business &amp; Support Hours</h4>
+                        <ul class="support-hours-list">
+                            <li><span>Monday - Friday:</span> <strong>9:00 AM - 8:00 PM IST</strong></li>
+                            <li><span>Saturday:</span> <strong>10:00 AM - 6:00 PM IST</strong></li>
+                            <li><span>Sunday:</span> <strong>11:00 AM - 4:00 PM IST</strong></li>
+                            <li><span>Online Store:</span> <strong>Open 24/7 Everyday</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-sidebar-card mb-4">
+                        <h4><i class="uil uil-sparkles mr-2 text-primary-bb"></i> Why Beauty Bliss?</h4>
+                        <ul class="bb-perks-list">
+                            <li><i class="uil uil-check-circle text-success mr-2"></i> 100% Genuine &amp; Dermatologically Tested Products</li>
+                            <li><i class="uil uil-check-circle text-success mr-2"></i> Safe, Cruelty-Free &amp; Toxin-Free Formulations</li>
+                            <li><i class="uil uil-check-circle text-success mr-2"></i> Express Delivery across all major pin codes</li>
+                            <li><i class="uil uil-check-circle text-success mr-2"></i> Easy 7-Day Hassle-Free Returns on Unopened Items</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-sidebar-card bg-light-gradient">
+                        <h4><i class="uil uil-question-circle mr-2 text-primary-bb"></i> Quick Help</h4>
+                        <p class="mb-3 text-muted">Looking for quick answers regarding your orders, shipping, or returns?</p>
+                        <a href="{% url 'core:faq' %}" class="btn btn-outline-dark btn-block">
+                            Browse Frequently Asked Questions <i class="uil uil-arrow-right ml-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+
+<style>
+.badge-primary-bb {
+    background-color: rgba(245, 93, 44, 0.12);
+    color: #f55d2c;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+.text-primary-bb {
+    color: #f55d2c !important;
+}
+.btn-bb-primary {
+    background: #f55d2c;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.btn-bb-primary:hover {
+    background: #e04b1c;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(245, 93, 44, 0.35);
+}
+.contact-feature-card {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    height: 100%;
+    border: 1px solid #f0f0f5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.feature-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: rgba(245, 93, 44, 0.1);
+    color: #f55d2c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 18px;
+}
+.contact-feature-card h4 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin-bottom: 10px;
+}
+.contact-feature-card p {
+    font-size: 14px;
+    color: #6c7293;
+    margin-bottom: 12px;
+}
+.feature-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f55d2c;
+    word-break: break-all;
+}
+.feature-address {
+    font-size: 14px;
+    color: #3e3f5e;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.contact-form-wrapper {
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f5;
+}
+.contact-form-wrapper h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2b2f4c;
+}
+.contact-sidebar-card {
+    background: #fff;
+    padding: 26px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f5;
+}
+.contact-sidebar-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2b2f4c;
+    margin-bottom: 16px;
+}
+.support-hours-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.support-hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px dashed #e8e8f0;
+    font-size: 14px;
+    color: #4b4f68;
+}
+.support-hours-list li:last-child {
+    border-bottom: none;
+}
+.bb-perks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bb-perks-list li {
+    padding: 7px 0;
+    font-size: 14px;
+    color: #3e3f5e;
+    display: flex;
+    align-items: flex-start;
+}
+.bg-light-gradient {
+    background: linear-gradient(135deg, #fbfbfd 0%, #f4f5fa 100%);
+}
+</style>
+{% endblock %}

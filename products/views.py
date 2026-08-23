@@ -13,7 +13,6 @@ class ProductListView(ListView):
     model = Product
     template_name = "products/all.html"
     context_object_name = "products"
-    paginate_by = 10
 
     SORT_OPTIONS = {
         'price_asc': 'selling_price',
@@ -23,7 +22,7 @@ class ProductListView(ListView):
     }
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().filter(is_active=True)
         
         # Apply sorting
         sort_param = self.request.GET.get('sort', 'default')
@@ -57,7 +56,6 @@ class FeaturedProductListView(ListView):
     model = Product
     template_name = "products/all.html"
     context_object_name = "products"
-    paginate_by = 5
 
     def get_queryset(self):
         queryset = Product.objects.filter(is_active=True, top_featured=True)
@@ -112,7 +110,6 @@ class ProductsByCategoryView(ListView):
     model = Product
     template_name = "products/all.html"
     context_object_name = "products"
-    paginate_by = 10
 
     def dispatch(self, request, *args, **kwargs):
         self.get_category()
@@ -126,7 +123,7 @@ class ProductsByCategoryView(ListView):
 
     def get_queryset(self):
         if self.category:
-            queryset = Product.objects.filter(category=self.category)
+            queryset = Product.objects.filter(category=self.category, is_active=True)
             if self.request.user.is_authenticated:
                 queryset = queryset.annotate(
                     is_wishlisted=Exists(

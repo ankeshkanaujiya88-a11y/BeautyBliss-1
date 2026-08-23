@@ -1,113 +1,111 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Terms & Conditions{% endblock %}
+{% block title %}Terms &amp; Conditions | Beauty Bliss{% endblock %}
 
 {% block content %}
 <div class="wrapper">
-    <div class="gambo-Breadcrumb">
+    <div class="bb-Breadcrumb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Terms & Conditions</li>
+                            <li class="breadcrumb-item active" aria-current="page">Terms &amp; Conditions</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <div class="all-product-grid">
+
+    <!-- Header Banner -->
+    <div class="default-dt" style="background: linear-gradient(135deg, #2b2f4c 0%, #3e446d 100%); color: #fff; padding: 45px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
+                    <div class="title129">
+                        <h2 style="color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 10px;">Terms &amp; Conditions</h2>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 16px; max-width: 650px; margin: 0 auto;">Please review our terms governing your use of Beauty Bliss, product orders, and beauty services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-product-grid" style="padding: 40px 0 60px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
                     <div class="terms-content-wrapper">
-                        <h2>Terms & Conditions</h2>
-                        <p class="last-updated">Last updated: {{ settings.privacy_last_updated|date:"F d, Y" }}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                            <div>
+                                <span class="badge badge-pill badge-primary-bb mb-1">Legal Agreement</span>
+                                <h3 class="mb-0 text-dark-blue">Beauty Bliss Terms of Service</h3>
+                            </div>
+                            <span class="text-muted small"><i class="uil uil-calendar-alt mr-1"></i> Last updated: {{ settings.terms_last_updated|date:"F d, Y" }}</span>
+                        </div>
 
                         <section class="terms-section">
-                            <h3>1. Agreement to Terms</h3>
-                            <p>By accessing and using {{ settings.site_name }}, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.</p>
+                            <h4>1. Acceptance of Terms</h4>
+                            <p>Welcome to <strong>{{ settings.site_name|default:"Beauty Bliss" }}</strong> ("we," "our," or "us"). By accessing our website, purchasing our cosmetics, skincare, haircare, and wellness products, or using our services, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our platform.</p>
                         </section>
 
                         <section class="terms-section">
-                            <h3>2. Use of Our Services</h3>
-                            <p>When using our services, you agree to:</p>
+                            <h4>2. Product Authenticity, Ingredients &amp; Usage Disclaimer</h4>
+                            <p>All items sold on Beauty Bliss are 100% genuine and sourced from licensed manufacturers and certified cosmetic partners.</p>
                             <ul>
-                                <li>Provide accurate and complete information</li>
-                                <li>Maintain the security of your account</li>
-                                <li>Not use the service for any illegal purposes</li>
-                                <li>Not interfere with the proper working of the service</li>
-                                <li>Accept responsibility for all activities under your account</li>
+                                <li><strong>Ingredient Transparency:</strong> We strive to provide accurate ingredient lists and shade swatches. However, individual skin types may react differently to active cosmetic ingredients.</li>
+                                <li><strong>Patch Test Recommendation:</strong> We strongly advise conducting a 24-hour patch test prior to using any new topical skincare or cosmetic formula.</li>
+                                <li><strong>Cosmetic Disclaimer:</strong> Products sold on this website are for cosmetic and personal care purposes only and are not intended to diagnose, treat, cure, or prevent any medical condition.</li>
                             </ul>
                         </section>
 
                         <section class="terms-section">
-                            <h3>3. Orders and Payments</h3>
-                            <p>By placing an order, you agree that:</p>
+                            <h4>3. Orders, Pricing &amp; Payment</h4>
                             <ul>
-                                <li>All order information provided is accurate and complete</li>
-                                <li>You will pay all charges at the prices in effect when incurred</li>
-                                <li>You will pay using an authorized payment method</li>
-                                <li>We reserve the right to refuse or cancel any orders</li>
-                                <li>Prices and availability are subject to change without notice</li>
+                                <li><strong>Order Confirmation:</strong> An order confirmation email and SMS will be sent once your order is successfully placed. We reserve the right to decline or cancel any order in the event of pricing errors or stock unavailability.</li>
+                                <li><strong>Transparent Pricing:</strong> All product prices displayed on the platform are inclusive of applicable goods and services taxes (GST). Shipping charges are detailed prior to final checkout.</li>
+                                <li><strong>Secure Payments:</strong> We accept online payments via credit/debit cards, UPI, Net Banking, and Cash on Delivery (COD). Payment data is processed securely through encrypted, PCI-DSS compliant gateways.</li>
                             </ul>
                         </section>
 
                         <section class="terms-section">
-                            <h3>4. Shipping and Delivery</h3>
-                            <p>Our delivery terms include:</p>
+                            <h4>4. Shipping, Delivery &amp; Transit</h4>
                             <ul>
-                                <li>Delivery times are estimates and not guaranteed</li>
-                                <li>Risk of loss passes to you upon delivery</li>
-                                <li>You must inspect products upon delivery</li>
-                                <li>Additional charges may apply for certain locations</li>
-                                <li>We are not responsible for delays beyond our control</li>
+                                <li><strong>Delivery Timelines:</strong> Orders are typically processed within 24 hours and delivered within 2–6 business days depending on your postal delivery location.</li>
+                                <li><strong>Tamper-Evident Packaging:</strong> If your delivery package appears damaged, unsealed, or tampered with at the time of handover, please refuse delivery and contact our support team immediately.</li>
                             </ul>
                         </section>
 
                         <section class="terms-section">
-                            <h3>5. Returns and Refunds</h3>
-                            <p>Our return policy states:</p>
+                            <h4>5. Hygiene Standards, Returns &amp; Refunds</h4>
+                            <p>Due to health, personal hygiene, and safety standards governing cosmetic and skincare products:</p>
                             <ul>
-                                <li>Returns must be initiated within 7 days of delivery</li>
-                                <li>Products must be unused and in original packaging</li>
-                                <li>Shipping costs for returns are customer's responsibility</li>
-                                <li>Refunds will be processed within 14 business days</li>
-                                <li>Some items are not eligible for return</li>
+                                <li>Items may be returned within <strong>7 days of delivery</strong> provided they remain <strong>unopened, sealed, and in their original packaging</strong>.</li>
+                                <li>Opened, sampled, or used cosmetic formulations cannot be returned unless verified as defective or damaged upon arrival.</li>
+                                <li>Approved refunds are credited to the original payment source within 3–7 business days.</li>
                             </ul>
                         </section>
 
                         <section class="terms-section">
-                            <h3>6. Intellectual Property</h3>
-                            <p>All content on this site is protected by:</p>
-                            <ul>
-                                <li>Copyright laws</li>
-                                <li>Trademark rights</li>
-                                <li>Other proprietary rights</li>
-                                <li>You may not copy or use our content without permission</li>
-                            </ul>
+                            <h4>6. User Accounts &amp; Conduct</h4>
+                            <p>When creating an account on Beauty Bliss, you agree to maintain the confidentiality of your login credentials. You are responsible for all activities that occur under your account and agree to notify us immediately of any unauthorized access.</p>
                         </section>
 
                         <section class="terms-section">
-                            <h3>7. Limitation of Liability</h3>
-                            <p>We will not be liable for:</p>
-                            <ul>
-                                <li>Indirect or consequential damages</li>
-                                <li>Lost profits or business interruption</li>
-                                <li>Data loss or corruption</li>
-                                <li>Technical failures or security breaches</li>
-                            </ul>
+                            <h4>7. Intellectual Property Rights</h4>
+                            <p>All trademarks, logos, brand assets, product photography, and text content featured on this website are the proprietary property of <strong>{{ settings.site_name|default:"Beauty Bliss" }}</strong> or its licensors and are protected under international copyright and intellectual property laws.</p>
                         </section>
 
                         <section class="terms-section">
-                            <h3>8. Contact Information</h3>
-                            <p>For questions about these Terms & Conditions, please contact us at:</p>
-                            <div class="contact-info">
-                                <p>Email: {{ settings.contact_email }}</p>
-                                <p>Phone: {{ settings.contact_phone }}</p>
-                                <p>Address: {{ settings.address }}</p>
+                            <h4>8. Contact &amp; Support</h4>
+                            <p>If you have any questions, feedback, or concerns regarding these Terms and Conditions, please contact our legal and customer concierge team:</p>
+                            <div class="contact-highlight-box">
+                                <p><i class="uil uil-envelope text-primary-bb mr-2"></i> <strong>Email:</strong> {{ settings.contact_email|default:"support@beautybliss.com" }}</p>
+                                <p><i class="uil uil-phone text-primary-bb mr-2"></i> <strong>Phone:</strong> {{ settings.contact_phone|default:"+91 12345 67890" }}</p>
+                                <p class="mb-0"><i class="uil uil-map-pin text-primary-bb mr-2"></i> <strong>Address:</strong> {{ settings.address|default:"Beauty Bliss HQ, Bandra Kurla Complex, Mumbai, Maharashtra 400051, India" }}</p>
                             </div>
                         </section>
                     </div>
@@ -118,62 +116,74 @@
 </div>
 
 <style>
+.badge-primary-bb {
+    background-color: rgba(245, 93, 44, 0.12);
+    color: #f55d2c;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+.text-primary-bb {
+    color: #f55d2c !important;
+}
+.text-dark-blue {
+    color: #2b2f4c;
+    font-weight: 700;
+}
 .terms-content-wrapper {
-    padding: 30px;
+    padding: 40px;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f5;
 }
-
-.terms-content-wrapper h2 {
-    color: #2b2f4c;
-    margin-bottom: 20px;
-    font-size: 28px;
-}
-
-.last-updated {
-    color: #666;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
 .terms-section {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
-
-.terms-section h3 {
+.terms-section h4 {
     color: #2b2f4c;
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 14px;
 }
-
 .terms-section p {
-    color: #3e3f5e;
-    margin-bottom: 15px;
+    color: #4b4f68;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+.terms-section ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+.terms-section ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #4b4f68;
+    font-size: 15px;
     line-height: 1.6;
 }
-
-.terms-section ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 15px;
+.terms-section ul li::before {
+    content: "•";
+    color: #f55d2c;
+    font-size: 20px;
+    position: absolute;
+    left: 8px;
+    top: -2px;
 }
-
-.terms-section ul li {
-    color: #3e3f5e;
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-.contact-info {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
+.contact-highlight-box {
+    background: #fbfbfd;
+    border: 1px solid #eef0f8;
+    border-left: 4px solid #f55d2c;
+    padding: 20px 24px;
+    border-radius: 6px;
     margin-top: 15px;
 }
-
-.contact-info p {
-    margin-bottom: 10px;
+.contact-highlight-box p {
+    margin-bottom: 8px;
+    font-size: 14px;
 }
 </style>
-{% endblock %} 
+{% endblock %}

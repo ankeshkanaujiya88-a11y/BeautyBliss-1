@@ -160,16 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         });
                     } else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success!',
-                            text: 'Item added to cart',
-                            timer: 1500,
-                            customClass: {
-                                container: 'swal-container-class',
-                                popup: 'swal-popup-class'
-                            }
-                        });
                         updateCartCount(data.cart_total);
                         fetchCartItems(); // Refresh cart display
                     }
@@ -222,16 +212,6 @@ function handleQuantityUpdate(itemId, newQuantity) {
             });
         } else {
             if (data.message === 'Item removed from cart') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: 'Item removed from cart',
-                    timer: 1500,
-                    customClass: {
-                        container: 'swal-container-class',
-                        popup: 'swal-popup-class'
-                    }
-                });
                 fetchCartItems(); // Refresh entire cart
             } else {
                 // Update quantity input with the server's value
@@ -383,14 +363,7 @@ async function addToCart(data) {
             cartCountElement.textContent = result.cart_total;
         }
 
-        // Show success message
-        Swal.fire({
-            icon: 'success',
-            title: 'Added to Cart',
-            text: result.message,
-            showConfirmButton: false,
-            timer: 1500
-        });
+        // Cart updated smoothly without popup
 
     } catch (error) {
         Swal.fire({

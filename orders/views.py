@@ -11,7 +11,7 @@ from users.models import Address
 @login_required
 def order_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number, user=request.user)
-    return render(request, "orders/success.html", {"order": order})
+    return redirect("users:dashboard.orders")
 
 
 @api_view(["POST"])
